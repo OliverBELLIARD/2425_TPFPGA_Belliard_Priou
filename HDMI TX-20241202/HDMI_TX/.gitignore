@@ -1,0 +1,8 @@
+demo_batch
+output_files
+
+DE10_Nano_HDMI_TX.qws
+db/
+incremental_db/
+
+*.bak
