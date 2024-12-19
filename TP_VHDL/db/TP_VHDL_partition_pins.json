@@ -4,35 +4,15 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "led[0]",
+					"name" : "o_led",
 					"strict" : false
 				},
 				{
-					"name" : "led[1]",
+					"name" : "i_clk",
 					"strict" : false
 				},
 				{
-					"name" : "led[2]",
-					"strict" : false
-				},
-				{
-					"name" : "led[3]",
-					"strict" : false
-				},
-				{
-					"name" : "sw[0]",
-					"strict" : false
-				},
-				{
-					"name" : "sw[1]",
-					"strict" : false
-				},
-				{
-					"name" : "sw[2]",
-					"strict" : false
-				},
-				{
-					"name" : "sw[3]",
+					"name" : "i_rst_n",
 					"strict" : false
 				}
 			]
