@@ -3,6 +3,8 @@ JedecChain;
 	FileRevision(JESD32A);
 	DefaultMfr(6E);
 
+	P ActionCode(Ign)
+		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
 		Device PartName(5CSEBA6U23) Path("/home/oliver/Documents/3A/linux_embarque/2425_TPFPGA_Belliard_Priou/TP_VHDL/output_files/") File("TP_VHDL.sof") MfrSpec(OpMask(1));
 

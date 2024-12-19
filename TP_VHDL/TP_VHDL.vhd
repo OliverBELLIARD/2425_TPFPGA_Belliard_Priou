@@ -3,8 +3,8 @@ library ieee;
 
 entity TP_VHDL is
   port (
-    sw  : in  std_logic;
-    led : out std_logic
+    sw  : in  std_logic_vector(3 downto 0);
+    led : out std_logic_vector(3 downto 0)
   );
 end entity;
 
