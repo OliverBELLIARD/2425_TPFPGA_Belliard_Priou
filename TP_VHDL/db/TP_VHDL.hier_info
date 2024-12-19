@@ -1,0 +1,5 @@
+|TP_VHDL
+sw => led.DATAIN
+led << sw.DB_MAX_OUTPUT_PORT_TYPE
+
+
