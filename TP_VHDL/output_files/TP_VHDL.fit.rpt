@@ -1,5 +1,5 @@
 Fitter report for TP_VHDL
-Thu Dec 19 10:56:55 2024
+Thu Dec 19 11:17:41 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -58,7 +58,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Fitter Summary                                                                   ;
 +---------------------------------+------------------------------------------------+
-; Fitter Status                   ; Successful - Thu Dec 19 10:56:55 2024          ;
+; Fitter Status                   ; Successful - Thu Dec 19 11:17:41 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; TP_VHDL                                        ;
 ; Top-level Entity Name           ; TP_VHDL                                        ;
@@ -153,7 +153,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.2%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processors 3-16        ;   0.0%      ;
 +----------------------------+-------------+
 
@@ -1372,7 +1372,7 @@ Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
 Info (170194): Fitter routing operations ending: elapsed time is 00:00:00
-Info (11888): Total time spent on timing analysis during the Fitter is 0.09 seconds.
+Info (11888): Total time spent on timing analysis during the Fitter is 0.08 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
@@ -1380,10 +1380,10 @@ Info (334004): Delay annotation completed successfully
 Info (11801): Fitter post-fit operations ending: elapsed time is 00:00:02
 Info (144001): Generated suppressed messages file /home/oliver/Documents/3A/linux_embarque/2425_TPFPGA_Belliard_Priou/TP_VHDL/output_files/TP_VHDL.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 5 warnings
-    Info: Peak virtual memory: 2658 megabytes
-    Info: Processing ended: Thu Dec 19 10:56:55 2024
-    Info: Elapsed time: 00:00:19
-    Info: Total CPU time (on all processors): 00:00:56
+    Info: Peak virtual memory: 2687 megabytes
+    Info: Processing ended: Thu Dec 19 11:17:42 2024
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:57
 
 
 +----------------------------+

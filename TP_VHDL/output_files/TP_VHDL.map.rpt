@@ -1,5 +1,5 @@
 Analysis & Synthesis report for TP_VHDL
-Thu Dec 19 10:56:35 2024
+Thu Dec 19 11:17:21 2024
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -43,7 +43,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu Dec 19 10:56:35 2024          ;
+; Analysis & Synthesis Status     ; Successful - Thu Dec 19 11:17:21 2024          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; TP_VHDL                                        ;
 ; Top-level Entity Name           ; TP_VHDL                                        ;
@@ -254,7 +254,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Thu Dec 19 10:56:29 2024
+    Info: Processing started: Thu Dec 19 11:17:15 2024
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off TP_VHDL -c TP_VHDL
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -268,8 +268,8 @@ Info (21057): Implemented 2 device resources after synthesis - the final resourc
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 1 output pins
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 478 megabytes
-    Info: Processing ended: Thu Dec 19 10:56:35 2024
+    Info: Peak virtual memory: 472 megabytes
+    Info: Processing ended: Thu Dec 19 11:17:21 2024
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:18
 
