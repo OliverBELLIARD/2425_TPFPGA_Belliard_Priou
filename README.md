@@ -3,6 +3,12 @@ TP de réalisation d'un petit projet employant le HDMI pour l'affichage du logo 
 
 On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=readme-ov-file#installation-via-package-manager) permettant de gérer graphiquement notre repo facilement.
 
+Mapping des pins à utiliser : 
+
+![Pins_LEDs](https://github.com/user-attachments/assets/2a620267-1293-4109-8eb4-644c1c29cd8f)
+
+![Clocks](https://github.com/user-attachments/assets/47d07cc7-b699-41c0-b6c7-50c553ca662e)
+
 ## 1.6 Faire clignoter une LED
 RTL Viewer
 ![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
