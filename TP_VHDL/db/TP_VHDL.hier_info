@@ -7,14 +7,9 @@ i_clk => r_led[4].CLK
 i_clk => r_led[5].CLK
 i_clk => r_led[6].CLK
 i_clk => r_led[7].CLK
-i_clk => crawler[0].CLK
-i_clk => crawler[1].CLK
-i_clk => crawler[2].CLK
-i_clk => crawler[3].CLK
-i_clk => crawler[4].CLK
-i_clk => crawler[5].CLK
-i_clk => crawler[6].CLK
-i_clk => crawler[7].CLK
+i_clk => i[0].CLK
+i_clk => i[1].CLK
+i_clk => i[2].CLK
 i_clk => counter[0].CLK
 i_clk => counter[1].CLK
 i_clk => counter[2].CLK
@@ -46,6 +41,9 @@ i_rst_n => r_led[4].ACLR
 i_rst_n => r_led[5].ACLR
 i_rst_n => r_led[6].ACLR
 i_rst_n => r_led[7].ACLR
+i_rst_n => i[0].ACLR
+i_rst_n => i[1].ACLR
+i_rst_n => i[2].ACLR
 i_rst_n => counter[0].ACLR
 i_rst_n => counter[1].ACLR
 i_rst_n => counter[2].ACLR
@@ -69,21 +67,13 @@ i_rst_n => counter[19].ACLR
 i_rst_n => counter[20].ACLR
 i_rst_n => counter[21].ACLR
 i_rst_n => counter[22].ACLR
-i_rst_n => crawler[7].ENA
-i_rst_n => crawler[6].ENA
-i_rst_n => crawler[5].ENA
-i_rst_n => crawler[4].ENA
-i_rst_n => crawler[3].ENA
-i_rst_n => crawler[2].ENA
-i_rst_n => crawler[1].ENA
-i_rst_n => crawler[0].ENA
-o_led[0] <= r_led[0].DB_MAX_OUTPUT_PORT_TYPE
-o_led[1] <= r_led[1].DB_MAX_OUTPUT_PORT_TYPE
-o_led[2] <= r_led[2].DB_MAX_OUTPUT_PORT_TYPE
-o_led[3] <= r_led[3].DB_MAX_OUTPUT_PORT_TYPE
-o_led[4] <= r_led[4].DB_MAX_OUTPUT_PORT_TYPE
-o_led[5] <= r_led[5].DB_MAX_OUTPUT_PORT_TYPE
-o_led[6] <= r_led[6].DB_MAX_OUTPUT_PORT_TYPE
-o_led[7] <= r_led[7].DB_MAX_OUTPUT_PORT_TYPE
+o_led[0] << r_led[0].DB_MAX_OUTPUT_PORT_TYPE
+o_led[1] << r_led[1].DB_MAX_OUTPUT_PORT_TYPE
+o_led[2] << r_led[2].DB_MAX_OUTPUT_PORT_TYPE
+o_led[3] << r_led[3].DB_MAX_OUTPUT_PORT_TYPE
+o_led[4] << r_led[4].DB_MAX_OUTPUT_PORT_TYPE
+o_led[5] << r_led[5].DB_MAX_OUTPUT_PORT_TYPE
+o_led[6] << r_led[6].DB_MAX_OUTPUT_PORT_TYPE
+o_led[7] << r_led[7].DB_MAX_OUTPUT_PORT_TYPE
 
 

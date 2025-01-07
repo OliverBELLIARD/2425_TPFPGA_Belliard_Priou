@@ -1,5 +1,5 @@
 Flow report for TP_VHDL
-Tue Jan  7 10:22:20 2025
+Tue Jan  7 10:46:05 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,15 +41,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Flow Failed - Tue Jan  7 10:22:20 2025         ;
+; Flow Status                     ; Successful - Tue Jan  7 10:46:00 2025          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; TP_VHDL                                        ;
 ; Top-level Entity Name           ; TP_VHDL                                        ;
 ; Family                          ; Cyclone V                                      ;
 ; Device                          ; 5CSEBA6U23I7                                   ;
 ; Timing Models                   ; Final                                          ;
-; Logic utilization (in ALMs)     ; 24 / 41,910 ( < 1 % )                          ;
-; Total registers                 ; 39                                             ;
+; Logic utilization (in ALMs)     ; 22 / 41,910 ( < 1 % )                          ;
+; Total registers                 ; 43                                             ;
 ; Total pins                      ; 10 / 314 ( 3 % )                               ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0 / 5,662,720 ( 0 % )                          ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/07/2025 10:22:13 ;
+; Start date & time ; 01/07/2025 10:45:27 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TP_VHDL             ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 259684874430591.173624173348757        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 259684874430591.173624312750140        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,9 +94,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:07     ; 1.0                     ; 569 MB              ; 00:00:18                           ;
-; Fitter               ; 00:00:00     ; 1.0                     ; 533 MB              ; 00:00:01                           ;
-; Total                ; 00:00:07     ; --                      ; --                  ; 00:00:19                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 559 MB              ; 00:00:18                           ;
+; Fitter               ; 00:00:21     ; 1.0                     ; 2794 MB             ; 00:01:07                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 514 MB              ; 00:00:04                           ;
+; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 992 MB              ; 00:00:04                           ;
+; Total                ; 00:00:35     ; --                      ; --                  ; 00:01:33                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -107,6 +109,8 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+-----------------------------------------+----------------+------------+----------------+
 ; Analysis & Synthesis ; oliver-ROG-Zephyrus-G14-GA401QM-GA401QM ; Ubuntu 24.04.1 ; 24         ; x86_64         ;
 ; Fitter               ; oliver-ROG-Zephyrus-G14-GA401QM-GA401QM ; Ubuntu 24.04.1 ; 24         ; x86_64         ;
+; Assembler            ; oliver-ROG-Zephyrus-G14-GA401QM-GA401QM ; Ubuntu 24.04.1 ; 24         ; x86_64         ;
+; Timing Analyzer      ; oliver-ROG-Zephyrus-G14-GA401QM-GA401QM ; Ubuntu 24.04.1 ; 24         ; x86_64         ;
 +----------------------+-----------------------------------------+----------------+------------+----------------+
 
 
@@ -115,6 +119,8 @@ https://fpgasoftware.intel.com/eula.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off TP_VHDL -c TP_VHDL
 quartus_fit --read_settings_files=off --write_settings_files=off TP_VHDL -c TP_VHDL
+quartus_asm --read_settings_files=off --write_settings_files=off TP_VHDL -c TP_VHDL
+quartus_sta TP_VHDL -c TP_VHDL
 
 
 

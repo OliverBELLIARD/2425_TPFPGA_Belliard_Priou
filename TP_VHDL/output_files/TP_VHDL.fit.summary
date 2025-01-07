@@ -1,12 +1,12 @@
-Fitter Status : Failed - Tue Jan  7 10:22:20 2025
+Fitter Status : Successful - Tue Jan  7 10:45:55 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : TP_VHDL
 Top-level Entity Name : TP_VHDL
 Family : Cyclone V
 Device : 5CSEBA6U23I7
 Timing Models : Final
-Logic utilization (in ALMs) : 24 / 41,910 ( < 1 % )
-Total registers : 39
+Logic utilization (in ALMs) : 22 / 41,910 ( < 1 % )
+Total registers : 43
 Total pins : 10 / 314 ( 3 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )

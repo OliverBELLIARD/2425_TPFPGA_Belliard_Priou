@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Tue Jan  7 10:22:19 2025
+Analysis & Synthesis Status : Successful - Tue Jan  7 10:45:33 2025
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : TP_VHDL
 Top-level Entity Name : TP_VHDL
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 39
+Total registers : 34
 Total pins : 10
 Total virtual pins : 0
 Total block memory bits : 0
