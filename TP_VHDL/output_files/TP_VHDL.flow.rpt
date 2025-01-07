@@ -1,5 +1,5 @@
 Flow report for TP_VHDL
-Tue Jan  7 08:23:58 2025
+Tue Jan  7 09:40:00 2025
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -41,7 +41,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +---------------------------------+------------------------------------------------+
-; Flow Status                     ; Successful - Tue Jan  7 08:23:53 2025          ;
+; Flow Status                     ; Successful - Tue Jan  7 09:39:55 2025          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; TP_VHDL                                        ;
 ; Top-level Entity Name           ; TP_VHDL                                        ;
@@ -68,7 +68,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 01/07/2025 08:23:21 ;
+; Start date & time ; 01/07/2025 09:39:22 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; TP_VHDL             ;
 +-------------------+---------------------+
@@ -79,7 +79,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
 ; Assignment Name                     ; Value                                  ; Default Value ; Entity Name ; Section Id ;
 +-------------------------------------+----------------------------------------+---------------+-------------+------------+
-; COMPILER_SIGNATURE_ID               ; 259684874430591.173623460113608        ; --            ; --          ; --         ;
+; COMPILER_SIGNATURE_ID               ; 259684874430591.173623916243769        ; --            ; --          ; --         ;
 ; MAX_CORE_JUNCTION_TEMP              ; 100                                    ; --            ; --          ; --         ;
 ; MIN_CORE_JUNCTION_TEMP              ; -40                                    ; --            ; --          ; --         ;
 ; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --          ; Top        ;
@@ -94,11 +94,11 @@ https://fpgasoftware.intel.com/eula.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 565 MB              ; 00:00:17                           ;
-; Fitter               ; 00:00:20     ; 1.0                     ; 2810 MB             ; 00:00:57                           ;
-; Assembler            ; 00:00:04     ; 1.0                     ; 517 MB              ; 00:00:04                           ;
+; Analysis & Synthesis ; 00:00:06     ; 1.0                     ; 572 MB              ; 00:00:18                           ;
+; Fitter               ; 00:00:20     ; 1.0                     ; 2806 MB             ; 00:01:01                           ;
+; Assembler            ; 00:00:04     ; 1.0                     ; 513 MB              ; 00:00:04                           ;
 ; Timing Analyzer      ; 00:00:04     ; 1.1                     ; 988 MB              ; 00:00:04                           ;
-; Total                ; 00:00:34     ; --                      ; --                  ; 00:01:22                           ;
+; Total                ; 00:00:34     ; --                      ; --                  ; 00:01:27                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

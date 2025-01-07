@@ -47,6 +47,6 @@ i_rst_n => counter[19].ACLR
 i_rst_n => counter[20].ACLR
 i_rst_n => counter[21].ACLR
 i_rst_n => counter[22].ACLR
-o_led << r_led.DB_MAX_OUTPUT_PORT_TYPE
+o_led <= r_led.DB_MAX_OUTPUT_PORT_TYPE
 
 

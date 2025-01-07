@@ -4,6 +4,9 @@ TP de réalisation d'un petit projet employant le HDMI pour l'affichage du logo 
 On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=readme-ov-file#installation-via-package-manager) permettant de gérer graphiquement notre repo facilement.
 
 ## 1.6 Faire clignoter une LED
+RTL Viewer
+![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
+
 Clignottement de la LED à 50 MHz :
 ```vhdl
 library ieee;
@@ -31,6 +34,38 @@ begin
   o_led <= r_led;
 end architecture;
 ```
+Description matérielle pour faire clignoter la LED à 10 Hz :
+```vhdl
+library ieee;
+  use ieee.std_logic_1164.all;
 
-RTL Viewer
-![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
+entity TP_VHDL is
+  port (
+    i_clk   : in  std_logic;
+    i_rst_n : in  std_logic;
+    o_led   : out std_logic
+  );
+end entity;
+
+architecture rtl of TP_VHDL is
+  signal r_led : std_logic := '0';
+begin
+  process (i_clk, i_rst_n)
+    variable counter : natural range 0 to 5000000 := 0;
+  begin
+    if (i_rst_n = '0') then
+      counter := 0;
+      r_led <= '0';
+    elsif (rising_edge(i_clk)) then
+      if (counter = 5000000) then
+        counter := 0;
+        r_led <= not r_led; -- Inverse l'état de la LED
+      else
+        counter := counter + 1;
+      end if;
+    end if;
+  end process;
+  
+  o_led <= r_led;
+end architecture rtl;
+```

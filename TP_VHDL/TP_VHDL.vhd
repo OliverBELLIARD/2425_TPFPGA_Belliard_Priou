@@ -21,12 +21,12 @@ begin
     elsif (rising_edge(i_clk)) then
       if (counter = 5000000) then
         counter := 0;
-        r_led <= not r_led;
+        r_led <= not r_led; -- Inverse l'état de la LED
       else
         counter := counter + 1;
-        r_led <= '0';
       end if;
     end if;
   end process;
+  
   o_led <= r_led;
-end architecture;
+end architecture rtl;
