@@ -1,0 +1,6 @@
+|TP_VHDL
+i_clk => r_led.CLK
+i_rst_n => r_led.ACLR
+o_led << r_led.DB_MAX_OUTPUT_PORT_TYPE
+
+
