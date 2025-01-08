@@ -597,3 +597,8 @@ begin
         );
 end architecture rtl;
 ```
+
+Nous obtenons bien le logo de l'ENSEA qui se déplace en rebondissant sur l'écran :
+  
+![2025-01-08 17-31-14](https://github.com/user-attachments/assets/3b1db675-3d72-4fd0-bb22-44800ff0bbe1)
+
