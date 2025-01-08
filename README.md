@@ -142,8 +142,6 @@ end architecture rtl;
 
 ### 2.1.2
 
-
-
 Les signaux non expliqués de **`hdmi_generator`** :
 
 1. **`o_hdmi_hs` (Horizontal Sync)** :
