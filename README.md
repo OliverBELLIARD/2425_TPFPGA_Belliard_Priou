@@ -364,7 +364,6 @@ Après l'envoi de simples gradients de couleur, nous reçevons l'image suivante 
   
 ![image](https://github.com/user-attachments/assets/a6944efd-b10d-44bd-aec9-370a5542a3bd)
   
-
 ## 2.2 Bouncing ENSEA Logo
 
 ### 2.2.1 Déplacer le logo
