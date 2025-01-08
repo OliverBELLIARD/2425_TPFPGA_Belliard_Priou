@@ -21,6 +21,10 @@ Pour savoir quels pins sont reliés à nos leds nous allons avoir besoin de la d
 
 Depuis ces deux captures nous avons maintenant les pins nécessaires pour continuer.
 
+## 1.5 - Modification du VHDL
+
+Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20...
+
 ![Clocks](https://github.com/user-attachments/assets/47d07cc7-b699-41c0-b6c7-50c553ca662e)
 
 ## 1.6 Faire clignoter une LED
