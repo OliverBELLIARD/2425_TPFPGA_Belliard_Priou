@@ -8,7 +8,7 @@ On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=read
 
 ## 1.3 - Fichier de contrainte
 
-Ici nous cherchons à assigner l'entité que l'on vient de créer aux sorites disponibles sur notre carte. Dans ce cas nous allons avoir besoin d'une led et d'un switch.  
+Ici nous cherchons à assigner l'entité que l'on vient de créer aux sorties disponibles sur notre carte. Dans ce cas nous allons avoir besoin d'une led et d'un switch.  
 
 On peut alors trouver le détail des pins qu'on peut utiliser ou non dans le Pin Mapper disponible sur Quartus.  
 Pour savoir quels pins sont reliés à nos leds nous allons avoir besoin de la datasheet
