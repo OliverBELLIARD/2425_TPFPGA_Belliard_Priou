@@ -4,9 +4,9 @@ TP de réalisation d'un petit projet employant le HDMI pour l'affichage du logo 
 
 On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=readme-ov-file#installation-via-package-manager) permettant de gérer graphiquement notre repo facilement.
 
-# Tutoriel Quartus
+# 1 - Tutoriel Quartus
 
-## Fichier de contrainte
+## 1.3 - Fichier de contrainte
 
 ## Mapping des pins à utiliser
 
