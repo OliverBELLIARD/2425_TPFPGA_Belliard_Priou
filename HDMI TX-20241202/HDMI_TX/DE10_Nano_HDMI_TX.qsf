@@ -7,7 +7,7 @@ set_global_assignment -name FAMILY "Cyclone V"
 set_global_assignment -name DEVICE 5CSEBA6U23I7
 set_global_assignment -name TOP_LEVEL_ENTITY "DE10_Nano_HDMI_TX"
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 14.0
-set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.0 Lite Edition"
+set_global_assignment -name LAST_QUARTUS_VERSION "23.1std.1 Lite Edition"
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "TUE MAR  3 15:11:40 2015"
 set_global_assignment -name DEVICE_FILTER_PACKAGE UFBGA
 
