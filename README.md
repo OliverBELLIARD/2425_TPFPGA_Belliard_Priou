@@ -140,8 +140,6 @@ end architecture rtl;
 
 ## 2.1 Contrôleur HDMI
 
-### 2.1.2
-
 Les signaux non expliqués de **`hdmi_generator`** :
 
 1. **`o_hdmi_hs` (Horizontal Sync)** :
@@ -166,6 +164,8 @@ Les signaux non expliqués de **`hdmi_generator`** :
    - Signal activé pendant un cycle lorsque l'ensemble d'une trame est terminé. Il est utile pour signaler une nouvelle image à traiter.
 
 Ces signaux sont essentiels pour piloter correctement un périphérique HDMI, en coordonnant l'affichage et en générant des timings conformes au standard HDMI.
+
+### 2.1.1 Écriture du composant
 
 Le composant `hdmi_generator.vhd` est complété de la façon suivante :
 
@@ -446,3 +446,5 @@ Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench `tb_hdmi_gene
 Sur cette première figure on vérifie que `o_y_counter` s'incrémente correctement jusqu'à `v_res` qui vaut 480.
 
   ![image](https://github.com/user-attachments/assets/26169508-c66d-4ab7-ae52-ccabab887317)
+
+### 2.1.2 Implémentation sur le FPGA
