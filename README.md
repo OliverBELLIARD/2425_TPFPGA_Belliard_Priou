@@ -25,12 +25,14 @@ Depuis ces deux captures nous avons maintenant les pins nécessaires pour contin
 
 Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20...
 
-![Clocks](https://github.com/user-attachments/assets/47d07cc7-b699-41c0-b6c7-50c553ca662e)
-
 ## 1.6 Faire clignoter une LED
+
+Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons d'une ressource donnée sur Moodle. 
+
 
 RTL Viewer
 ![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
+
 
 Clignottement de la LED à 50 MHz :
 
