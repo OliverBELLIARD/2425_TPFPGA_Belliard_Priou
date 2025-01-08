@@ -29,6 +29,12 @@ Maintenant que nous cherchons à assigner plusieurs leds à nos différents swit
 
 Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons d'une ressource donnée sur Moodle. 
 
+Nous allons utiliser l'horloge FPGA_CLK1_50 pour passer en séquentiel (on a donc besoin d'une horloge pour se synchroniser).  
+On trouve le pin lié à celle-ci depuis la datasheet : 
+
+![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
+
+
 
 RTL Viewer
 ![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
