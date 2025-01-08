@@ -25,6 +25,24 @@ Depuis ces deux captures nous avons maintenant les pins nécessaires pour contin
 
 Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20 et ainsi de suite.
 
+```mermaid
+graph TD
+    A[Entity: TP_VHDL]
+    B[Port: sw (std_logic)]
+    C[Port: led (std_logic)]
+    D[Port: sw (std_logic_vector 3 downto 0)]
+    E[Port: led (std_logic_vector 3 downto 0)]
+
+    subgraph Architecture: rtl
+        F[Assignment: led <= sw]
+    end
+
+    A --> B
+    A --> D
+    F --> C
+    F --> E
+```
+
 ## 1.6 Faire clignoter une LED
 
 Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons de la datasheet de la carte DE10-Nano [(DE10-Nano_User_manual.pdf)](https://github.com/OliverBELLIARD/2425_TPFPGA_Belliard_Priou/blob/main/Datasheets/DE10-Nano_User_manual.pdf).
