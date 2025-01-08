@@ -23,7 +23,7 @@ Depuis ces deux captures nous avons maintenant les pins nécessaires pour contin
 
 ## 1.5 - Modification du VHDL
 
-Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20...
+Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20 et ainsi de suite.
 
 ## 1.6 Faire clignoter une LED
 
