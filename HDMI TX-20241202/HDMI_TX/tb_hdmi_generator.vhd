@@ -78,10 +78,8 @@ begin
   clock_process: process
   begin
     while True loop
-      i_clk <= '0';
-      wait for CLK_PERIOD / 2;
-      i_clk <= '1';
-      wait for CLK_PERIOD / 2;
+      i_clk <= '0'; wait for 5 ns;
+      i_clk <= '1'; wait for 5 ns;
     end loop;
   end process;
 
