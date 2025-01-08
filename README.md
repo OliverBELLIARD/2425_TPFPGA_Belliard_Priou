@@ -27,10 +27,10 @@ Maintenant que nous cherchons à assigner plusieurs leds à nos différents swit
 
 ## 1.6 Faire clignoter une LED
 
-Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons d'une ressource donnée sur Moodle. 
+Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons de la datasheet de la carte DE10-Nano [(DE10-Nano_User_manual.pdf)](https://github.com/OliverBELLIARD/2425_TPFPGA_Belliard_Priou/blob/main/Datasheets/DE10-Nano_User_manual.pdf). 
 
-Nous allons utiliser l'horloge FPGA_CLK1_50 pour passer en séquentiel (on a donc besoin d'une horloge pour se synchroniser).  
-On trouve le pin lié à celle-ci depuis la datasheet : 
+Nous allons utiliser l'horloge FPGA_CLK1_50, à 50 MHz, pour passer en séquentiel (on a donc besoin d'une horloge pour se synchroniser).  
+On trouve le pin lié à celle-ci dans la datasheet : 
 
 ![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
 
@@ -38,8 +38,7 @@ Le code auquel nous avons accès depuis Moodle répond au shcéma ci-dessous. No
 
 ![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
 
-
-Clignottement de la LED à 50 MHz :
+Pour le clignottement de la LED à 50 MHz nous avons commencé avec le code de base suivant :
 
 ```vhdl
 library ieee;
@@ -67,11 +66,8 @@ begin
   o_led <= r_led;
 end architecture;
 ```
-Le problème du code précédent est qu'il fait clignoter notre LED à 50 MHz, ce qui est bien trop rapide pour que nous puissions le distinguer à l'oeil, nous cherchons donc à diminuer sa fréquence.
+Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
 
-Pour se faire, nous savons que l'horloge qui alimente notre entité oscille à 50MHz, il suffit alors d'y implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz :
-
-Description matérielle pour faire clignoter la LED à 10 Hz :
 ```vhdl
 library ieee;
   use ieee.std_logic_1164.all;
@@ -106,11 +102,12 @@ begin
   o_led <= r_led;
 end architecture rtl;
 ```
+
 Par ailleurs, on trouve sur la datasheet le pin auquel le bouton poussoir KEY0 est relié, il s'agit de AH17 :
 
 ![image](https://github.com/user-attachments/assets/a756d150-ee9c-456d-acbb-d8906035b5fa)
 
-le _n dans i_rst_n signifie que le signal de reset (rst) en input (i) est actif à l'état bas.
+le "_n" dans `i_rst_n` signifie "not", ça ser à indiquer que le signal de reset (rst) en input (i) est actif à l'état bas.
 
 ## 1.7 Chenillard
 
@@ -187,10 +184,8 @@ Les signaux non expliqués de **`hdmi_generator`** :
    - Signal activé pendant un cycle lorsque l'ensemble d'une trame est terminé. Il est utile pour signaler une nouvelle image à traiter.
 
 Ces signaux sont essentiels pour piloter correctement un périphérique HDMI, en coordonnant l'affichage et en générant des timings conformes au standard HDMI.
-
-### 2.1.1 Écriture du composant
-
-Nous avons codé un Testbench qui gère le signal d'orloge et le signal de reset pour observer les signaux en sortie :
+  
+Nous avons codé un Testbench qui gère tout simplement le signal d'orloge et le signal de reset pour observer les signaux en sortie de l'Entity de la **Figure 1** :
 
 ```vhdl
 library ieee;
@@ -296,7 +291,9 @@ begin
 end architecture;
 ```
 
-Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench `tb_hdmi_generator` sur [ModelSim](https://www.intel.com/content/www/us/en/software-kit/750368/modelsim-intel-fpgas-standard-edition-software-version-18-1.html) :  
+### 2.1.1 Écriture du composant
+
+Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench créé plus haut, `tb_hdmi_generator` sur [ModelSim](https://www.intel.com/content/www/us/en/software-kit/750368/modelsim-intel-fpgas-standard-edition-software-version-18-1.html) :  
   
 ![image](https://github.com/user-attachments/assets/ce3d4ace-85ba-4610-a705-59721d3552cf)
 
