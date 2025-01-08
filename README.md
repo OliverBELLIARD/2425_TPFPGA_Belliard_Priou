@@ -113,6 +113,12 @@ Par ailleurs, on trouve sur la datasheet le pin auquel le bouton poussoir KEY0 e
 
 le "_n" dans `i_rst_n` signifie "not", ça ser à indiquer que le signal de reset (rst) en input (i) est actif à l'état bas.
 
+On obtient alors la vue RTL suivante : 
+
+![image](https://github.com/user-attachments/assets/9a339164-fe71-48d3-a0a5-802f3ad4aba2)
+
+On reconnait effectivement la fonction voulue : que l'état de notre led alterne si la valeur de notre compteur (synchronisée avec la clock sélectionnée précédemment à 50MHz) est égale à une valeur hexadécimale équivalente à 5 000 000, créant ainsi une oscillation de 10Hz.
+
 ## 1.7 Chenillard
 
 Notre chenillard :
@@ -159,6 +165,7 @@ begin
  o_led <= r_led;
 end architecture rtl;
 ```
+Notre chenillard reprend le même principe qu'en 1.6 pour faire clignoter notre led mais lorsqu'un cycle est fini, nous effectuons un décalage d'1 bit à gauche, tout en s'assurant que sinous arrivons au bout de notre index, celui-ci se réinitialise pour pas que le chenillard s'arrête.
 
 # 2 Petit projet : Bouncing ENSEA Logo
 
