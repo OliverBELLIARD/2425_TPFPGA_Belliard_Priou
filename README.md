@@ -9,12 +9,21 @@ On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=read
 ## 1.3 - Fichier de contrainte
 
 Ici nous cherchons à assigner l'entité que l'on vient de créer aux sorites disponibles sur notre carte. Dans ce cas nous allons avoir besoin d'une led et d'un switch.  
+
 On peut alors trouver le détail des pins qu'on peut utiliser ou non dans le Pin Mapper disponible sur Quartus.  
 Pour savoir quels pins sont reliés à nos leds nous allons avoir besoin de la datasheet
 
 ## Mapping des pins à utiliser
 
 ![Pins_LEDs](https://github.com/user-attachments/assets/2a620267-1293-4109-8eb4-644c1c29cd8f)
+
+![image](https://github.com/user-attachments/assets/082a54a5-2f0d-42a4-9ec6-3a10d13f2b68)
+
+Depuis ces deux captures nous avons maintenant les pins nécessaires pour continuer.
+
+## 1.5 - Modification du VHDL
+
+Maintenant que nous cherchons à assigner plusieurs leds à nos différents switchs, nous avons besoin des autres pins que nous avions pas utilisé plus haut, toujours en se referrant à la datasheet, pour avoir par exemple sw(3) = PIN_W20...
 
 ![Clocks](https://github.com/user-attachments/assets/47d07cc7-b699-41c0-b6c7-50c553ca662e)
 
