@@ -34,9 +34,8 @@ On trouve le pin lié à celle-ci depuis la datasheet :
 
 ![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
 
+Le code auquel nous avons accès depuis Moodle répond au shcéma ci-dessous. Nous y avons eu accès depuis le RTL viewer de Quartus.
 
-
-RTL Viewer
 ![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
 
 
@@ -68,9 +67,11 @@ begin
   o_led <= r_led;
 end architecture;
 ```
+Le problème du code précédent est qu'il fait clignoter notre LED à 50 MHz, ce qui est bien trop rapide pour que nous puissions le distinguer à l'oeil, nous cherchons donc à diminuer sa fréquence.
+
+Pour se faire, nous savons que l'horloge qui alimente notre entité oscille à 50MHz, il suffit alors d'y implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz :
 
 Description matérielle pour faire clignoter la LED à 10 Hz :
-
 ```vhdl
 library ieee;
   use ieee.std_logic_1164.all;
