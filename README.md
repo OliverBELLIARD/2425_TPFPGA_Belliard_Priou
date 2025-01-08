@@ -62,12 +62,16 @@ begin
   o_led <= r_led;
 end architecture;
 ```
-Ce code auquel nous avons pu avoir accès depuis Moodle répond au shcéma ci-dessous :  
+Le fonctionnement logique voulu d'un tel code doit être le suivant si il s'agit dimplement faire clignoter une LED : 
 
-![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
+![image](https://github.com/user-attachments/assets/ed2697b0-b3b4-4f0c-855d-da7b2f818ba7)
 
-Ce schéma est accessible depuis "RTL viewer" :  
+Sous Analysis & Synthesis on peut trouver "RTL viewer" qui nous permet d'avoir un aperçu des principaux éléments de notre code :  
 ![image](https://github.com/user-attachments/assets/ccba088f-449e-4190-b2ca-5fd5882eb7ee)
+
+On peut alors conclure que la vue RTL du code précédent est très similaire au schéma qu'on a dessiné juste avant :  
+![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c) 
+
 
 
 Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
