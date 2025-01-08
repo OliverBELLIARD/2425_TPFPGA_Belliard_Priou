@@ -74,7 +74,12 @@ On peut alors conclure que la vue RTL du code précédent est très similaire au
 
 
 
-Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
+Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le schéma suivant :  
+![image](https://github.com/user-attachments/assets/9a71e6cc-7d53-479c-acd7-28914ac2bd7e)
+
+En effet, cette fois le signal de la led s'alternera seulement après que le compteur se soit incrémenté 5 000 000 de fois.
+
+Nous l'avons codé de la façon suivante :  
 
 ```vhdl
 library ieee;
