@@ -110,6 +110,8 @@ Par ailleurs, on trouve sur la datasheet le pin auquel le bouton poussoir KEY0 e
 
 ![image](https://github.com/user-attachments/assets/a756d150-ee9c-456d-acbb-d8906035b5fa)
 
+le _n dans i_rst_n signifie que le signal de reset (rst) en input (i) est actif à l'état bas.
+
 ## 1.7 Chenillard
 
 Notre chenillard :
