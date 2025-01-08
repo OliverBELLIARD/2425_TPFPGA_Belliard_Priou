@@ -360,6 +360,11 @@ Sur cette première figure on vérifie que `o_y_counter` s'incrémente correctem
 
 ### 2.1.2 Implémentation sur le FPGA
 
+Après l'envoi de simples gradients de couleur, nous reçevons l'image suivante sur notre récepteur HDMI (VLC : Media > Open Capture Device > Capture Mode : Video Camera, Video device name : premier appareil) :
+  
+![image](https://github.com/user-attachments/assets/a6944efd-b10d-44bd-aec9-370a5542a3bd)
+  
+
 ## 2.2 Bouncing ENSEA Logo
 
 ### 2.2.1 Déplacer le logo
