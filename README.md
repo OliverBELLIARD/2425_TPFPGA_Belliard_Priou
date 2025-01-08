@@ -402,3 +402,7 @@ Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench `tb_hdmi_gene
 ![image](https://github.com/user-attachments/assets/ce3d4ace-85ba-4610-a705-59721d3552cf)
 
 Sur cette première figure on vérifie que `o_y_counter` s'incrémente correctement jusqu'à `v_res` qui vaut 480.
+
+  ![image](https://github.com/user-attachments/assets/26169508-c66d-4ab7-ae52-ccabab887317)
+
+
