@@ -27,10 +27,10 @@ Maintenant que nous cherchons à assigner plusieurs leds à nos différents swit
 
 ## 1.6 Faire clignoter une LED
 
-Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons de la datasheet de la carte DE10-Nano [(DE10-Nano_User_manual.pdf)](https://github.com/OliverBELLIARD/2425_TPFPGA_Belliard_Priou/blob/main/Datasheets/DE10-Nano_User_manual.pdf). 
+Nous cherchons maintenant à faire clignoter une LED. Pour cela nous nous servons de la datasheet de la carte DE10-Nano [(DE10-Nano_User_manual.pdf)](https://github.com/OliverBELLIARD/2425_TPFPGA_Belliard_Priou/blob/main/Datasheets/DE10-Nano_User_manual.pdf).
 
 Nous allons utiliser l'horloge FPGA_CLK1_50, à 50 MHz, pour passer en séquentiel (on a donc besoin d'une horloge pour se synchroniser).  
-On trouve le pin lié à celle-ci dans la datasheet : 
+On trouve le pin lié à celle-ci dans la datasheet :
 
 ![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
 
@@ -66,6 +66,7 @@ begin
   o_led <= r_led;
 end architecture;
 ```
+
 Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
 
 ```vhdl
@@ -160,30 +161,86 @@ end architecture rtl;
 
 ## 2.1 Contrôleur HDMI
 
-Les signaux non expliqués de **`hdmi_generator`** :
+### **1. Analyse de l'entity :**
 
-1. **`o_hdmi_hs` (Horizontal Sync)** :
-   - Signal de synchronisation horizontale. Il passe à l'état haut ou bas à des moments spécifiques pour indiquer le début et la fin d'une ligne.
+#### Quel est le rôle des différents paramètres définis en generic ?  
 
-2. **`o_hdmi_vs` (Vertical Sync)** :
-   - Signal de synchronisation verticale. Similaire à `o_hdmi_hs`, mais utilisé pour indiquer le début et la fin d'une trame.
+- **`h_res`** : Représente la résolution horizontale (nombre de pixels par ligne) de l'image.  
+- **`v_res`** : Représente la résolution verticale (nombre de lignes par image).  
+- **`h_sync`, `h_fp`, `h_bp`** : Ces paramètres définissent les timings horizontaux :
+  - **`h_sync`** : Durée de l'impulsion de synchronisation horizontale.
+  - **`h_fp`** (Front Porch) : Intervalle entre la fin de la ligne active et le début de l'impulsion de synchronisation.
+  - **`h_bp`** (Back Porch) : Intervalle entre la fin de l'impulsion de synchronisation et le début de la ligne active.  
+- **`v_sync`, `v_fp`, `v_bp`** : Ces paramètres définissent les timings verticaux :
+  - **`v_sync`** : Durée de l'impulsion de synchronisation verticale.
+  - **`v_fp`** (Front Porch) : Intervalle entre la fin de la zone active et le début de l'impulsion de synchronisation verticale.
+  - **`v_bp`** (Back Porch) : Intervalle entre la fin de l'impulsion de synchronisation verticale et le début de la zone active.  
 
-3. **`o_hdmi_de` (Data Enable)** :
-   - Indique si les données envoyées concernent une zone active (visible) sur l'écran. Il est activé uniquement lorsque les pixels sont visibles.
+#### Quelle est leur unité ?  
 
-4. **`o_pixel_en` (Pixel Enable)** :
-   - Signal activé lorsque le générateur est dans une zone active et un pixel spécifique doit être traité.
+L'unité des paramètres **timings** (e.g., `h_sync`, `h_fp`) est exprimée en **cycles d'horloge**.
 
-5. **`o_pixel_address`** :
-   - Adresse calculée de chaque pixel actif dans l'image. Cette adresse suit la formule `x + (h_res × y)` et est utilisée pour accéder à une mémoire ou générer des données d'image.
+---
 
-6. **`o_x_counter` et `o_y_counter`** :
-   - Ces compteurs indiquent respectivement la position X (horizontale) et Y (verticale) des pixels actuellement traités dans la zone active.
+### **2. Rôle de certains signaux :**
 
-7. **`o_new_frame`** :
-   - Signal activé pendant un cycle lorsque l'ensemble d'une trame est terminé. Il est utile pour signaler une nouvelle image à traiter.
+- **`o_new_frame`** : Passe à l'état haut pendant **1 cycle d'horloge** lorsqu'une image complète a été transmise.  
+- **`o_pixel_address`** : Adresse du pixel dans l'image active. Calculée par :  
+  \[
+  \text{o_pixel_address} = o_x_counter + (h_res \times o_y_counter)
+  \]
+- **`o_x_counter`** et **`o_y_counter`** : Indiquent respectivement la position du pixel en coordonnées X (horizontale) et Y (verticale) dans la zone active.
 
-Ces signaux sont essentiels pour piloter correctement un périphérique HDMI, en coordonnant l'affichage et en générant des timings conformes au standard HDMI.
+---
+
+### **3. Rôle des autres signaux :**
+
+#### Entrées  
+
+1. **`i_clk`** : Signal d'horloge servant de référence pour tous les compteurs et processus séquentiels.  
+2. **`i_reset_n`** : Signal actif bas pour réinitialiser tous les registres et compteurs internes.
+
+#### Sorties  
+
+1. **`o_hdmi_hs` (Horizontal Sync)** : Génère l'impulsion de synchronisation horizontale (active pendant `h_sync` cycles d'horloge).  
+2. **`o_hdmi_vs` (Vertical Sync)** : Génère l'impulsion de synchronisation verticale (active pendant `v_sync` cycles).  
+3. **`o_hdmi_de` (Data Enable)** : Signal indiquant si le générateur est dans une **zone active** où les pixels sont visibles. Il est actif lorsque `h_act` et `v_act` sont hauts.  
+4. **`o_pixel_en` :** Permet d'activer l'écriture ou la lecture des pixels lorsque le générateur est dans la zone active.
+
+---
+
+### **Récapitulatif des étapes de la conception :**
+
+#### Étape 1 : Compteur horizontal (`h_count`)
+
+- Compte de 0 à `h_total` et génère le signal de synchronisation horizontale **`o_hdmi_hs`**.
+
+#### Étape 2 : Compteur vertical (`v_count`)
+
+- Compte de 0 à `v_total` et génère le signal de synchronisation verticale **`o_hdmi_vs`**.
+
+#### Étape 3 : Détection de la zone active
+
+- Basée sur les plages de **`h_count`** et **`v_count`**, des signaux internes **`h_act`** et **`v_act`** sont définis.
+
+#### Étape 4 : Génération de l'adresse du pixel actif
+
+- Un compteur de pixels actifs génère l'adresse du pixel actif via **`o_pixel_address`**.
+
+#### Étape 5 : Comptage X/Y
+
+- Les compteurs X et Y (respectivement **`o_x_counter`** et **`o_y_counter`**) indiquent la position d'un pixel actif.
+
+---
+
+### **Simulation et Test :**
+
+Pour valider le fonctionnement :
+
+1. Créez un testbench pour simuler les compteurs et signaux **`o_hdmi_hs`**, **`o_hdmi_vs`**, **`o_hdmi_de`**.
+2. Testez avec des résolutions réduites (par exemple, `h_res=10`, `v_res=10`) pour réduire les temps de simulation.
+
+---
   
 Nous avons codé un Testbench qui gère tout simplement le signal d'orloge et le signal de reset pour observer les signaux en sortie de l'Entity de la **Figure 1** :
 
@@ -474,6 +531,7 @@ end architecture rtl;
 ```
 
 Et `DE10_Nano_HDMI_TX.vhd` a été rempli comme suit :
+
 ```vhdl
 library ieee;
 use ieee.std_logic_1164.all;
@@ -598,4 +656,3 @@ end architecture rtl;
 Nous obtenons bien le logo de l'ENSEA qui se déplace en rebondissant sur l'écran :
   
 ![2025-01-08 17-31-14](https://github.com/user-attachments/assets/3b1db675-3d72-4fd0-bb22-44800ff0bbe1)
-
