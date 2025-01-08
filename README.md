@@ -34,10 +34,6 @@ On trouve le pin lié à celle-ci dans la datasheet :
 
 ![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
 
-Le code auquel nous avons accès depuis Moodle répond au shcéma ci-dessous. Nous y avons eu accès depuis le RTL viewer de Quartus.
-
-![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
-
 Pour le clignottement de la LED à 50 MHz nous avons commencé avec le code de base suivant :
 
 ```vhdl
@@ -66,6 +62,13 @@ begin
   o_led <= r_led;
 end architecture;
 ```
+Ce code auquel nous avons pu avoir accès depuis Moodle répond au shcéma ci-dessous :  
+
+![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
+
+Ce schéma est accessible depuis "RTL viewer" :  
+![image](https://github.com/user-attachments/assets/ccba088f-449e-4190-b2ca-5fd5882eb7ee)
+
 
 Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
 
