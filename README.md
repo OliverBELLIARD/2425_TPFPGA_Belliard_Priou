@@ -106,6 +106,9 @@ begin
   o_led <= r_led;
 end architecture rtl;
 ```
+Par ailleurs, on trouve sur la datasheet le pin auquel le bouton poussoir KEY0 est relié, il s'agit de AH17 :
+
+![image](https://github.com/user-attachments/assets/a756d150-ee9c-456d-acbb-d8906035b5fa)
 
 ## 1.7 Chenillard
 
