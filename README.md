@@ -17,6 +17,10 @@ Pour savoir quels pins sont reliés à nos leds nous allons avoir besoin de la d
 
 ![Pins_LEDs](https://github.com/user-attachments/assets/2a620267-1293-4109-8eb4-644c1c29cd8f)
 
+![image](https://github.com/user-attachments/assets/082a54a5-2f0d-42a4-9ec6-3a10d13f2b68)
+
+Depuis ces deux captures nous avons maintenant les pins nécessaires pour continuer.
+
 ![Clocks](https://github.com/user-attachments/assets/47d07cc7-b699-41c0-b6c7-50c553ca662e)
 
 ## 1.6 Faire clignoter une LED
