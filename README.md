@@ -372,7 +372,7 @@ end architecture;
 
 ### 2.1.1 Écriture du composant
 
-Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench créé plus haut, `tb_hdmi_generator` sur [ModelSim](https://www.intel.com/content/www/us/en/software-kit/750368/modelsim-intel-fpgas-standard-edition-software-version-18-1.html) :  
+Nous avons simulé notre `hdmi_generator.vhd` avec notre testbench créé plus haut, `tb_hdmi_generator` sur [ModelSim](https://www.intel.com/content/www/us/en/software-kit/750666/modelsim-intel-fpgas-standard-edition-software-version-20-1-1.html) :  
   
 ![image](https://github.com/user-attachments/assets/ce3d4ace-85ba-4610-a705-59721d3552cf)
 
