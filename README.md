@@ -8,7 +8,7 @@ On utilise l'outil [GitHub Desktop](https://github.com/shiftkey/desktop?tab=read
 
 ## 1.3 - Fichier de contrainte
 
-Ici nous cherchons à assigner l'entité que l'on vient de créer aux sorites disponibles sur notre carte. Dans ce cas nous allons avoir besoin d'une led et d'un switch.  
+Ici nous cherchons à assigner l'entité que l'on vient de créer aux sorties disponibles sur notre carte. Dans ce cas nous allons avoir besoin d'une led et d'un switch.  
 
 On peut alors trouver le détail des pins qu'on peut utiliser ou non dans le Pin Mapper disponible sur Quartus.  
 Pour savoir quels pins sont reliés à nos leds nous allons avoir besoin de la datasheet
@@ -33,10 +33,6 @@ Nous allons utiliser l'horloge FPGA_CLK1_50, à 50 MHz, pour passer en séquenti
 On trouve le pin lié à celle-ci dans la datasheet :
 
 ![image](https://github.com/user-attachments/assets/9c7899e2-77c8-4083-be35-f498a9e88f3c)
-
-Le code auquel nous avons accès depuis Moodle répond au shcéma ci-dessous. Nous y avons eu accès depuis le RTL viewer de Quartus.
-
-![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c)
 
 Pour le clignottement de la LED à 50 MHz nous avons commencé avec le code de base suivant :
 
@@ -66,8 +62,27 @@ begin
   o_led <= r_led;
 end architecture;
 ```
+Le fonctionnement logique voulu d'un tel code doit être le suivant si il s'agit simplement faire clignoter une LED : 
 
-Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le code suivant :
+![image](https://github.com/user-attachments/assets/ed2697b0-b3b4-4f0c-855d-da7b2f818ba7)
+
+Sous Analysis & Synthesis on peut trouver "RTL viewer" qui nous permet d'avoir un aperçu des principaux éléments de notre code :  
+  
+![image](https://github.com/user-attachments/assets/ccba088f-449e-4190-b2ca-5fd5882eb7ee)
+  
+On peut alors conclure que la vue RTL du code précédent est très similaire au schéma qu'on a dessiné juste avant :  
+  
+![image](https://github.com/user-attachments/assets/f5b64e9c-50aa-4916-832e-c871bfd2ff7c) 
+
+
+
+Pour régler la fréquence du clignotement, trop rapide pour que nous puissions la distinguer à l'oeil nu pour l'instant, il suffit d'implémenter un compteur s'incrémentant jusqu'à 5 000 000 pour diminuer la fréquence de notre oscillation à 10 Hz par exemple. Cette approche se traduit par le schéma suivant :  
+  
+![image](https://github.com/user-attachments/assets/9a71e6cc-7d53-479c-acd7-28914ac2bd7e)
+
+En effet, cette fois le signal de la led s'alternera seulement après que le compteur se soit incrémenté 5 000 000 de fois.
+
+Nous l'avons codé de la façon suivante :  
 
 ```vhdl
 library ieee;
@@ -109,6 +124,12 @@ Par ailleurs, on trouve sur la datasheet le pin auquel le bouton poussoir KEY0 e
 ![image](https://github.com/user-attachments/assets/a756d150-ee9c-456d-acbb-d8906035b5fa)
 
 le "_n" dans `i_rst_n` signifie "not", ça ser à indiquer que le signal de reset (rst) en input (i) est actif à l'état bas.
+
+On obtient alors la vue RTL suivante : 
+
+![image](https://github.com/user-attachments/assets/9a339164-fe71-48d3-a0a5-802f3ad4aba2)
+
+On reconnait effectivement la fonction voulue : que l'état de notre led alterne si la valeur de notre compteur (synchronisée avec la clock sélectionnée précédemment à 50MHz) est égale à une valeur hexadécimale équivalente à 5 000 000, créant ainsi une oscillation de 10Hz.
 
 ## 1.7 Chenillard
 
@@ -156,6 +177,7 @@ begin
  o_led <= r_led;
 end architecture rtl;
 ```
+Notre chenillard reprend le même principe qu'en 1.6 pour faire clignoter notre led mais lorsqu'un cycle est fini, nous effectuons un décalage d'1 bit à gauche, tout en s'assurant que sinous arrivons au bout de notre index, celui-ci se réinitialise pour pas que le chenillard s'arrête.
 
 # 2 Petit projet : Bouncing ENSEA Logo
 
